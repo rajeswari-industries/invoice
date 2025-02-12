@@ -360,4 +360,81 @@ input {
     .sft2 {
         text-align: center;
     }
+    @media print {
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+    
+        body {
+            font-size: 18px;
+            color: black;
+            text-align: center;
+        }
+    
+        input {
+            border: none;
+            width: auto;
+            font-size: inherit;
+            background: transparent;
+            color: black;
+        }
+    
+        textarea {
+            border: none !important;
+            outline: none !important;
+            background: transparent !important;
+            color: black !important;
+            resize: none;
+        }
+    
+        textarea::before {
+            content: attr(value);
+            white-space: pre-wrap;
+        }
+    
+        input::before {
+            content: attr(value);
+        }
+    
+        input:focus {
+            outline: none;
+        }
+    
+        button {
+            display: none !important;
+        }
+    
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    
+        .table2 th {
+            background-color: transparent !important;
+            color: black !important;
+        }
+    
+    
+        .table1 {
+            width: 450px;
+            height: auto;
+        }
+    
+    
+        body::before,
+        body::after {
+            display: none !important;
+            content: none !important;
+        }
+    }
+    
 }
