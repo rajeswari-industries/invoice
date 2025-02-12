@@ -61,9 +61,18 @@ function printInvoice() {
         input.replaceWith(span);
     });
 
-    document.querySelectorAll(".delete-btn").forEach(btn => btn.remove()); // Hide delete buttons before printing
+    document.querySelectorAll(".delete-btn").forEach(btn => btn.remove()); 
 
     window.print();
-
-     
 }
+document.getElementById("invoiceDate").addEventListener("change", function () {
+    let date = new Date(this.value);
+    let day = String(date.getDate()).padStart(2, '0');
+    let month = String(date.getMonth() + 1).padStart(2, '0'); 
+    let year = date.getFullYear();
+    
+    let formattedDate = `${day}/${month}/${year}`;
+
+    this.type = "text"; 
+    this.value = formattedDate;
+});
