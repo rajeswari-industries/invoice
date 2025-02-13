@@ -154,6 +154,14 @@ input {
         margin: 10mm;
     }
 
+    #gstRate {
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        outline: none !important;
+        appearance: none;
+    }
+
     body {
         font-size: 18px;
         color: black;
@@ -223,6 +231,7 @@ input {
         display: none !important;
         content: none !important;
     }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -360,18 +369,27 @@ input {
     .sft2 {
         text-align: center;
     }
+
     @media print {
         @page {
             size: A4;
             margin: 10mm;
         }
-    
+
+        #gstRate {
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            outline: none !important;
+            appearance: none;
+        }
+
         body {
             font-size: 18px;
             color: black;
             text-align: center;
         }
-    
+
         input {
             border: none;
             width: auto;
@@ -379,7 +397,7 @@ input {
             background: transparent;
             color: black;
         }
-    
+
         textarea {
             border: none !important;
             outline: none !important;
@@ -387,54 +405,52 @@ input {
             color: black !important;
             resize: none;
         }
-    
+
         textarea::before {
             content: attr(value);
             white-space: pre-wrap;
         }
-    
+
         input::before {
             content: attr(value);
         }
-    
+
         input:focus {
             outline: none;
         }
-    
+
         button {
             display: none !important;
         }
-    
-    
+
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
-    
+
         th,
         td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
         }
-    
+
         .table2 th {
             background-color: transparent !important;
             color: black !important;
         }
-    
-    
+
         .table1 {
             width: 450px;
             height: auto;
         }
-    
-    
+
         body::before,
         body::after {
             display: none !important;
             content: none !important;
         }
     }
-    
+
 }
