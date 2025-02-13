@@ -27,6 +27,7 @@ function removeRow(button) {
     updateRowNumbers(); 
 }
 
+
 function calculateTotal() {
     let rows = document.querySelectorAll(".invoice-row");
     let subtotal = 0;
@@ -39,7 +40,8 @@ function calculateTotal() {
         subtotal += amount;
     });
 
-    let gst = subtotal * 0.12; // 12% GST
+    let gstRate = parseFloat(document.getElementById("gstRate").value) / 100; // Get selected GST percentage
+    let gst = subtotal * gstRate;
     let grandTotal = subtotal + gst;
 
     document.getElementById("subtotal").textContent = subtotal.toFixed(2);
@@ -64,13 +66,14 @@ function printInvoice() {
     document.querySelectorAll(".delete-btn").forEach(btn => btn.remove()); 
 
     window.print();
+ 
 }
 document.getElementById("invoiceDate").addEventListener("change", function () {
     let date = new Date(this.value);
     let day = String(date.getDate()).padStart(2, '0');
     let month = String(date.getMonth() + 1).padStart(2, '0'); 
     let year = date.getFullYear();
-    
+
     let formattedDate = `${day}/${month}/${year}`;
 
     this.type = "text"; 
