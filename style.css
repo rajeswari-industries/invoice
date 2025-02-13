@@ -160,6 +160,7 @@ input {
         box-shadow: none !important;
         outline: none !important;
         appearance: none;
+        color: darkgreen;
     }
 
     body {
@@ -382,6 +383,7 @@ input {
             box-shadow: none !important;
             outline: none !important;
             appearance: none;
+            color: darkgreen;
         }
 
         body {
