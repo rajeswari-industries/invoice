@@ -1,458 +1,331 @@
-* {
+*{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-
-.cnt1 {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 50px;
-}
-
-.cnt1 p {
-    color: darkgreen;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
     font-weight: bold;
-    font-size: 16px;
-}
-
-.cnt2 {
+  }
+  
+  .header-info {
+    font-weight: bold;
+    font-size: 20px;
+    color: darkgreen;
+    padding: 8px 12px;
+  }
+  
+  p {
+    margin: 4px 0;
+    line-height: 1.4;
+  }
+  
+  .container-fluid {
+    padding: 8px 16px;
+  }
+  
+  /* HEADER STYLES */
+  .header {
     text-align: center;
-    margin-top: 10px;
-}
-
-.cnt2 h1 {
-    color: red;
-    font-size: 40px;
+  }
+  
+  .title {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 36px;
     font-weight: bold;
-}
-
-.cnt2 p {
-    color: darkgreen;
-    font-size: 18px;
-}
-
-#pcnt2 {
-    color: red;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.cnt3 {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.scnt31 h2 {
-    color: red;
-    font-size: 20px;
-}
-
-.scnt33 h3 {
-    color: red;
-    font-size: 20px;
-}
-
-#cnt3h2 {
-    color: darkgreen;
-    font-size: 18px;
-}
-
-.scnt32 p {
-    background: darkgreen;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
+    color: #dc3545;
+  }
+  
+  .subtitle {
     font-size: 16px;
-    font-weight: bold;
-}
-
-.tab {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 50px;
-    align-items: center;
-}
-
-.table1 {
-    width: 40%;
-    border: 3px solid darkgreen;
-    border-collapse: collapse;
-    padding: 10px;
-    line-height: 40px;
-}
-
-input {
-    width: 240px;
-    height: 30px;
-    font-size: large;
-}
-
-.table1 td {
-    padding: 10px;
+    font-weight: 600;
+    color: #198754;
+  }
+  
+  .address {
     font-size: 14px;
-}
-
-.stab {
-    color: darkgreen;
-    font-size: 14px;
+  }
+  
+  .tax-invoice {
+    background-color: darkgreen;
+    color: white;
+    padding: 4px 18px;
+    font-size: 18px;
     font-weight: bold;
-    line-height: 40px;
-}
-
-
-.tab2 {
-    margin: 20px 50px;
+  }
+  
+  /* INLINE INPUT STYLE */
+  .input-group-inline {
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.table2 {
+    margin-bottom: 4px;
+  }
+  
+  .input-group-inline label {
+    width: 160px;
+    font-weight: 500;
+    font-size: 13px;
+    margin-right: 6px;
+  }
+  
+  .input-group-inline input[type="text"],
+  .input-group-inline input[type="date"] {
+    flex: 1;
+    padding: 2px 4px;
+    border: 1px solid #000;
+    border-radius: 0;
+    font-size: 13px;
     width: 100%;
-    border: 2px solid black;
-    border-collapse: collapse;
-    text-align: center;
-}
-
-.table2 th,
-.table2 td {
-    border: 1px solid black;
-    padding: 8px;
-    font-size: 14px;
-    color: darkgreen;
-}
-
-.table2 th {
-    background: darkgreen;
-    color: white;
-}
-
-.table2 tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-
-.ft {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 50px;
-    color: darkgreen;
+  }
+  
+  /* TEXTAREA STYLE */
+  textarea {
+    width: 100%;
+    border: 1px solid #000;
+    padding: 2px 4px;
+    font-size: 13px;
+    resize: vertical;
+    border-radius: 0;
+    font-family: inherit;
+  }
+  
+  /* FOCUS HIGHLIGHT */
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border: 1px solid #000;
+    background-color: #ffffe0;
+  }
+  
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse !important;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #000 !important;
+    padding: 4px;
+    vertical-align: top;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
     font-weight: bold;
-    font-size: 16px;
-}
-
-.sft2 {
-    text-align: right;
-}
-
-@media print {
+  }
+  
+  table input[type="text"] {
+    width: 100%;
+    border: 1px solid #000;
+    padding: 2px 4px;
+    font-size: 13px;
+    border-radius: 0;
+  }
+  
+  /* BANK & SIGNATORY */
+  td.border {
+    border: 1px solid black !important;
+    font-size: 13px;
+  }
+  
+  /* BUTTONS */
+  button {
+    margin-top: 10px;
+    padding: 6px 20px;
+    font-size: 14px;
+  }
+  
+  /* AVOID PAGE BREAK FOR FINAL BLOCK */
+  .no-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  /* RESPONSIVE TWEAKS */
+  @media screen and (max-width: 768px) {
+    table {
+      font-size: 11px;
+    }
+  
+    .input-group-inline label {
+      width: 120px;
+    }
+  }
+  
+  /* PRINT STYLES */
+  @media print {
     @page {
-        size: A4;
-        margin: 10mm;
+      size: A4 portrait;
+      margin: 8mm;
     }
-
-    #gstRate {
-        border: none !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        outline: none !important;
-        appearance: none;
-        color: darkgreen;
-    }
-
+  
     body {
-        font-size: 18px;
-        color: black;
-        text-align: center;
+      margin: 0;
+      padding: 0;
+      font-size: 11.5px;
+      line-height: 1.2;
     }
-
-    input {
-        border: none;
-        width: auto;
-        font-size: inherit;
-        background: transparent;
-        color: black;
+  
+    .container-fluid {
+      padding: 0;
     }
-
-    textarea {
-        border: none !important;
-        outline: none !important;
+  
+    button {
+      display: none !important;
+    }
+  
+    input,
+    textarea,
+    .input-group-inline input,
+    table input {
+      border: none !important;
+      outline: none !important;
+      font-size: 11px;
+      background-color: transparent !important;
+    }
+  
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none !important;
+      }
+    
+      input[type="date"] {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: textfield !important;
         background: transparent !important;
-        color: black !important;
-        resize: none;
+      }
+  
+    .input-group-inline {
+      margin-bottom: 2px !important;
+    }
+  
+    .input-group-inline label {
+      font-size: 11.5px;
+      margin-right: 4px;
+    }
+  
+    table {
+      font-size: 11px !important;
+      margin-bottom: 2px !important;
+    }
+  
+    table th,
+    table td {
+      padding: 2px 4px !important;
+      font-size: 11px !important;
+    }
+  
+    table th {
+      background-color: #e0e0e0 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color: #000 !important;
+    }
+  
+    .tax-invoice {
+      background-color: darkgreen !important;
+      color: white !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+  
+    .title {
+      font-size: 26px !important;
+      color: #dc3545 !important;
+      -webkit-print-color-adjust: exact !important;
+    }
+  
+    .subtitle {
+      font-size: 12.5px !important;
+      color: #198754 !important;
+      -webkit-print-color-adjust: exact !important;
+    }
+  
+    .address {
+      font-size: 11.5px !important;
+    }
+  
+    .header-info {
+      font-size: 11.5px;
+      color: darkgreen !important;
+    }
+  
+    td.border {
+      font-size: 11px !important;
+      padding: 3px !important;
+    }
+  
+    .bg-light {
+      background-color: #f4f4f4 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+  
+    .no-break {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+  }
+/* Additional Responsive Styles for Mobile */
+@media screen and (max-width: 576px) {
+    .header-info {
+        font-size: 16px;
+        padding: 6px 10px;
     }
 
-    textarea::before {
-        content: attr(value);
-        white-space: pre-wrap;
+    .title {
+        font-size: 28px;
     }
 
-    input::before {
-        content: attr(value);
+    .subtitle {
+        font-size: 14px;
     }
 
-    input:focus {
-        outline: none;
+    .address {
+        font-size: 12px;
+    }
+
+    .input-group-inline label {
+        width: 100px;
+        font-size: 12px;
+    }
+
+    .input-group-inline input[type="text"],
+    .input-group-inline input[type="date"] {
+        font-size: 12px;
+        padding: 2px;
+    }
+
+    table {
+        font-size: 10px;
+    }
+
+    table th,
+    table td {
+        padding: 2px;
     }
 
     button {
-        display: none !important;
+        font-size: 12px;
+        padding: 4px 16px;
     }
 
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th,
-    td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-    }
-
-    .table2 th {
-        background-color: transparent !important;
-        color: black !important;
-    }
-
-
-    .table1 {
-        width: 450px;
-        height: auto;
-    }
-
-
-    body::before,
-    body::after {
-        display: none !important;
-        content: none !important;
-    }
-
-}
-
-@media screen and (max-width: 768px) {
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-
-    .cnt1 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 10px 20px;
-    }
-
-    .cnt1 p {
-        font-size: 14px;
-    }
-
-
-    .cnt2 {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .cnt2 h1 {
-        font-size: 32px;
-    }
-
-    .cnt2 p {
+    .tax-invoice {
         font-size: 16px;
+        padding: 4px 12px;
     }
-
-    #pcnt2 {
-        font-size: 18px;
-    }
-
-    .cnt3 {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .scnt31 h2,
-    .scnt33 h3 {
-        font-size: 18px;
-    }
-
-    #cnt3h2 {
-        font-size: 16px;
-    }
-
-    .scnt32 p {
-        padding: 5px 15px;
-        font-size: 14px;
-    }
-
-    .tab {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .table1 {
-        width: 90%;
-        border: 2px solid darkgreen;
-    }
-
-    input {
-        width: 100%;
-        height: 30px;
-        font-size: 14px;
-    }
-
-    .table1 td {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-    .stab {
-        font-size: 12px;
-    }
-
-    .tab2 {
-        margin: 10px;
-        overflow-x: auto;
-        width: 100%;
-        display: block;
-    }
-
-    .table2 {
-        width: 100%;
-        min-width: 600px;
-        font-size: 12px;
-        border-collapse: collapse;
-    }
-
-    .table2 th,
-    .table2 td {
-        padding: 6px;
-        font-size: 12px;
-        text-align: center;
-        white-space: nowrap;
-    }
-
-    .table2 th {
-        background: darkgreen;
-        color: white;
-        font-size: 14px;
-    }
-
-    .table2 tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    .table2 th,
-    .table2 td {
-        border: 1px solid black;
-    }
-
-    .ft {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        font-size: 14px;
-    }
-
-    .sft2 {
-        text-align: center;
-    }
-
-    @media print {
-        @page {
-            size: A4;
-            margin: 10mm;
-        }
-
-        #gstRate {
-            border: none !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            outline: none !important;
-            appearance: none;
-            color: darkgreen;
-        }
-
-        body {
-            font-size: 18px;
-            color: black;
-            text-align: center;
-        }
-
-        input {
-            border: none;
-            width: auto;
-            font-size: inherit;
-            background: transparent;
-            color: black;
-        }
-
-        textarea {
-            border: none !important;
-            outline: none !important;
-            background: transparent !important;
-            color: black !important;
-            resize: none;
-        }
-
-        textarea::before {
-            content: attr(value);
-            white-space: pre-wrap;
-        }
-
-        input::before {
-            content: attr(value);
-        }
-
-        input:focus {
-            outline: none;
-        }
-
-        button {
-            display: none !important;
-        }
-
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-
-        .table2 th {
-            background-color: transparent !important;
-            color: black !important;
-        }
-
-        .table1 {
-            width: 450px;
-            height: auto;
-        }
-
-        body::before,
-        body::after {
-            display: none !important;
-            content: none !important;
-        }
-    }
-
 }
