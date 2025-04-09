@@ -1,81 +1,92 @@
-function addRow() {
-    let table = document.getElementById("invoiceTable").getElementsByTagName('tbody')[0];
-    let rowCount = table.rows.length;
-    let row = table.insertRow(rowCount);
-    row.classList.add("invoice-row");
+function numberToWords(num) {
+    const ones = [
+        "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+        "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"
+    ];
+    const tens = [
+        "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+    ];
+    const thousands = ["", "Thousand", "Lakh", "Crore"];
 
-    row.innerHTML = `
-    <td>${rowCount + 1}</td>
-    <td><textarea name="text" id="particular"></textarea></td>
-    <td><input type="text" class="itemNo"></td>
-    <td><input type="number" class="weight" oninput="calculateTotal()"></td>
-    <td><input type="number" class="rate" oninput="calculateTotal()"></td>
-    <td class="amount">0.00</td>
-    <td><button class="delete-btn" onclick="removeRow(this)" style="color: red;
-background: white;
-border: 0;
-border-radius: 5px;">❌</button></td>
-`;
+    if (num === 0) return "Zero";
 
-    updateRowNumbers();
+    let words = "";
+    let i = 0;
+
+    while (num > 0) {
+        if (num % 1000 !== 0) {
+            words = convertHundreds(num % 1000) + thousands[i] + " " + words;
+        }
+        num = Math.floor(num / 1000);
+        i++;
+    }
+
+    return words.trim();
 }
 
-function removeRow(button) {
-    let row = button.closest("tr");
-    row.remove();
-    calculateTotal();
-    updateRowNumbers(); 
+function convertHundreds(num) {
+    const ones = [
+        "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+        "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"
+    ];
+    const tens = [
+        "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+    ];
+
+    if (num === 0) return "";
+    if (num < 20) return ones[num] + " ";
+    if (num < 100) return tens[Math.floor(num / 10)] + " " + ones[num % 10] + " ";
+    return ones[Math.floor(num / 100)] + " Hundred " + convertHundreds(num % 100);
 }
 
-
-function calculateTotal() {
-    let rows = document.querySelectorAll(".invoice-row");
-    let subtotal = 0;
-
-    rows.forEach(row => {
-        let weight = parseFloat(row.querySelector(".weight").value) || 0;
-        let rate = parseFloat(row.querySelector(".rate").value) || 0;
-        let amount = weight * rate;
-        row.querySelector(".amount").textContent = amount.toFixed(2);
-        subtotal += amount;
-    });
-
-    let gstRate = parseFloat(document.getElementById("gstRate").value) / 100; // Get selected GST percentage
-    let gst = subtotal * gstRate;
-    let grandTotal = subtotal + gst;
-
-    document.getElementById("subtotal").textContent = subtotal.toFixed(2);
-    document.getElementById("gst").textContent = gst.toFixed(2);
-    document.getElementById("grandTotal").textContent = grandTotal.toFixed(2);
+// Format number to words with INR and ONLY
+function formatInrWords(num) {
+    return `INR ${numberToWords(num).toUpperCase()} ONLY`;
 }
 
-function updateRowNumbers() {
-    let rows = document.querySelectorAll(".invoice-row");
-    rows.forEach((row, index) => {
-        row.cells[0].textContent = index + 1;
-    });
+// Main calculation for the first product row
+function calculateInvoice() {
+    const qty = parseFloat(document.getElementById("qty-1").value) || 0;
+    const rate = parseFloat(document.getElementById("rate-1").value) || 0;
+    const cgst = parseFloat(document.getElementById("tax-cgst-igst-1").value) || 0;
+    const sgst = parseFloat(document.getElementById("tax-sgst-1").value) || 0;
+
+    const taxableValue = Math.round(qty * rate);
+    const cgstAmount = Math.round((cgst / 100) * taxableValue);
+    const sgstAmount = Math.round((sgst / 100) * taxableValue);
+    const totalTax = cgstAmount + sgstAmount;
+    const total = taxableValue + totalTax;
+
+    // Update calculated values
+    document.getElementById("taxable-value-1").value = taxableValue;
+    document.getElementById("amount-cgst-igst-1").value = cgstAmount;
+    document.getElementById("amount-sgst-1").value = sgstAmount;
+    document.getElementById("total-1").value = total;
+
+    document.getElementById("total-qty").value = qty;
+    document.getElementById("total-taxable-value").value = taxableValue;
+    document.getElementById("total-cgst-igst").value = cgstAmount;
+    document.getElementById('total-sgst').value = sgstAmount;
+    document.getElementById("total-amount").value = total;
+
+   // Footer calculations
+document.getElementById("total-before-tax").value = taxableValue;
+document.getElementById("add-cgst").value = cgstAmount;
+document.getElementById("add-sgst").value = sgstAmount;
+document.getElementById("add-igst").value = 0;
+document.getElementById("total-tax").value = totalTax;
+document.getElementById("invoice-value").value = total;
+
+// Words
+document.getElementById("total-tax-words").value = formatInrWords(total);       // Invoice Value in Words
+document.getElementById("tax-amount-words").value = formatInrWords(totalTax);   // Tax Amount in Words
+   // Invoice Value in Words
 }
 
-function printInvoice() {
-    document.querySelectorAll("input").forEach(input => {
-        let span = document.createElement("span");
-        span.textContent = input.value;
-        input.replaceWith(span);
-    });
-
-    document.querySelectorAll(".delete-btn").forEach(btn => btn.remove()); 
-
-    window.print();
- 
-}
-document.getElementById("invoiceDate").addEventListener("change", function () {
-    let date = new Date(this.value);
-    let day = String(date.getDate()).padStart(2, '0');
-    let month = String(date.getMonth() + 1).padStart(2, '0'); 
-    let year = date.getFullYear();
-
-    let formattedDate = `${day}/${month}/${year}`;
-
-    this.type = "text"; 
-    this.value = formattedDate;
+// Attach event listeners
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("qty-1").addEventListener("input", calculateInvoice);
+    document.getElementById("rate-1").addEventListener("input", calculateInvoice);
+    document.getElementById("tax-cgst-igst-1").addEventListener("input", calculateInvoice);
+    document.getElementById("tax-sgst-1").addEventListener("input", calculateInvoice);
 });
