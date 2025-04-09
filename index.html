@@ -2,145 +2,198 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajeswari Industries</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rajeswari Industries Invoice</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="table">
-        <div class="cnt1">
-            <p>GSTIN : 37AFCPB4474L1ZC</p>
-            <p>CASH / CREDIT BILL</p>
-            <p>Cell : 94405 20050 <br> Ph : 08819-231263</p>
-        </div>
-
-        <div class="cnt2">
-            <h1>Rajeswari Industries.,</h1>
-            <p>Mfrs of : Gunmetal, Copper, Bronze & Brass, Liner, Bush, Bearing, Machinary Parts etc.,</p>
-            <p id="pcnt2">NON-FERROUS CASTING</p>
-        </div>
-
-        <div class="cnt3">
-            <div class="scnt31">
-                <h2>రాజేశ్వరి ఇండస్ట్రీస్</h2>
-                <h2 id="cnt3h2">అజ్జరం - 534331</h2>
-            </div>
-            <div class="scnt32">
-                <p>TAX INVOICE</p>
-            </div>
-            <div class="scnt33">
-                <h3>AJJARAM - 534 331</h3>
-                <h3 id="cnt3h2">Peravali Mandal, W.G.Dist (A.P)<br>Near Tanuku</h3>
-            </div>
-        </div>
-
-        <div class="tab">
-            <table class="table1">
-                <tbody>
-                    <tr>
-                        <td>
-                            To M/s. <input type="text" id="customerName" class="editable"
-                                placeholder="Enter Customer Name"><br>
-                            <input type="text" id="address" class="editable" placeholder="Enter address"><br>
-                            GSTIN No. <input type="text" id="customerGSTIN" class="editable"
-                                placeholder="Enter GSTIN"><br>
-                            Telephone / Fax No. <input type="text" id="customerPhone" class="editable"
-                                placeholder="Enter Contact No.">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="stab">
-                <p> Invoice No.: <input type="text" id="invoiceNo" class="editable" placeholder="Enter Invoice No."></p>
-                <p> Date: <input type="date" id="invoiceDate" class="editable"></p>
-            </div>
-        </div><br>
-
-        <div class="tab2">
-            <table class="table2" id="invoiceTable">
-                <thead>
-                    <tr>
-                        <th>SI. NO.</th>
-                        <th>Particulars</th>
-                        <th>Item No</th>
-                        <th>Weight</th>
-                        <th>Rate</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="invoice-row">
-                        <td>1</td>
-                        <td><textarea name="text" id="particular"></textarea></td>
-                        <td><input type="text" class="itemNo"></td>
-                        <td><input type="number" class="weight" oninput="calculateTotal()"></td>
-                        <td><input type="number" class="rate" oninput="calculateTotal()"></td>
-                        <td class="amount">0.00</td>
-                    </tr>
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2" rowspan="2" style="width: 30%;">
-                            State Bank of India<br>
-                            A/c No. 10676844838<br>
-                            IFSC : SBIN0000925<br>
-                            Branch : TANUKU<br>
-                            PAN No.: AFCPB4474L
-                        </td>
-                        <td colspan="2" rowspan="2" style="width: 30%;">
-                            State Bank of India-2<br>
-                            A/c No. 52102766701<br>
-                            IFSC : SBHY0020411<br>
-                            Branch :R.P.Road,TANUKU<br>
-                            PAN No.: AFCPB4474L
-                        </td>
-                        <td>
-                            <p>Subtotal: </p>
-                            <label for="gstRate">GST Rate:</label>
-                            <select id="gstRate">
-                                <option value="12">12%</option>
-                                <option value="18">18%</option>
-                            </select>
-                            <p><strong>Grand Total: </strong></p>
-                        </td>
-                        <td>
-                            <span id="subtotal">0.00</span><br>
-                            <span id="gst">0.00</span><br>
-                            <span id="grandTotal">0.00</span>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-            <button onclick="addRow()" style="color: black;
-        background: lightgreen;
-        border: 0;
-        padding: 3px 10px;
-        border-radius: 5px;">+</button>
-        </div>
-
-        <footer>
-            <div class="ft">
-                <div class="sft1">(P.T.O)</div>
-                <div class="sft2">
-                    For Rajeswari Industries<br><br>
-                    Proprietor
-                </div>
-            </div>
-        </footer>
+  <div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-start mb-2 header-info">
+      <div>GSTIN: 37AFCPB4474L1ZC</div>
+      <div>CASH / CREDIT BILL</div>
+      <div class="text-end">
+        <div>Cell: 94405 20050</div>
+        <div>Ph: 08819-231263</div>
+      </div>
     </div>
-    <center>
-        <button onclick="printInvoice()" style="padding: 5px 10px;
-    border: 5px;
-    background: cornflowerblue;
-    border-radius: 5px;
-    ">Print Invoice</button>
-    </center>
-    <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+
+
+
+    <table class="table table-bordered text-center">
+      <thead>
+        <tr>
+          <td colspan="12">
+            <div class="header">
+              <h1 class="text-center text-danger fw-bold title">Rajeswari Industries</h1>
+              <p class="text-center fw-bold text-success fs-5 subtitle">Mrfs of: Gunmetal, Copper, Bronze & Brass,
+                Liner, Bush,
+                Bearings, Machinery Parts etc.,</p>
+              <p class="text-center text-danger fw-semibold fs-5">NON-FERROUS CASTING</p>
+              <p class="text-center fs-5 address">Main Road, Ajjaram, Peravali Mandal, Near Tanuku, West Godavari -
+                534331,
+                Andhra Pradesh</p>
+              <div class="text-center my-2">
+                <span class="tax-invoice">Tax Invoice</span>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+        <tr>
+          <td colspan="6">
+            <div class="input-group-inline"><label>Invoice No:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>Invoice Date:</label> <input type="date" /></div>
+            <div class="input-group-inline"><label>Reverse Charge (Y/N):</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>State:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>State Code:</label> <input type="text" /></div>
+          </td>
+          <td colspan="6">
+            <div class="input-group-inline"><label>Mode of Transport:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>GSTIN/Vehicle Number:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>Eway Bill No:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>Place of Supply:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>PO No & Date:</label> <input type="text" /></div>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="6" style="background: lightgrey;">Billing Address</th>
+          <th colspan="6" style="background: lightgrey;">Shipping Address</th>
+        </tr>
+        <tr>
+          <td colspan="6">
+            <div class="input-group-inline"><label>Name:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>Address:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>GSTIN:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>UIN No:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>State:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>Code:</label> <input type="text" /></div>
+          </td>
+          <td colspan="6">
+            <div class="input-group-inline"><label>Name:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>Address:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>GSTIN:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>UIN No:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>State:</label> <input type="text" /></div>
+            <div class="input-group-inline"><label>Code:</label> <input type="text" /></div>
+          </td>
+        </tr>
+        <tr>
+          <th style="background-color: lightgrey;" rowspan="2">No</th>
+          <th style="background-color: lightgrey;" rowspan="2">Description of Products/Services</th>
+          <th style="background-color: lightgrey;" rowspan="2">HSN Code</th>
+          <th style="background-color: lightgrey;" rowspan="2">Qty</th>
+          <th style="background-color: lightgrey;" rowspan="2">UOM</th>
+          <th style="background-color: lightgrey;" rowspan="2">Rate</th>
+          <th style="background-color: lightgrey;" rowspan="2">Taxable Value</th>
+          <th style="background-color: lightgrey;" colspan="2">CGST / IGST</th>
+          <th style="background-color: lightgrey;" colspan="2">SGST</th>
+          <th style="background-color: lightgrey;" rowspan="2">Total</th>
+        </tr>
+        <tr>
+          <th style="background-color: lightgrey;">Tax</th>
+          <th style="background-color: lightgrey;">Amount</th>
+          <th style="background-color: lightgrey;">Tax</th>
+          <th style="background-color: lightgrey;">Amount</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><textarea type="text" id="description" ></textarea></td>
+          <td><input type="text" id="hsncode" /></td>
+          <td><input type="text" id="qty" /></td>
+          <td><input type="text" id="uom" /></td>
+          <td><input type="text" id="rate" /></td>
+          <td><input type="text" id="taxable-value" /></td>
+          <td><input type="text" id="tax-cgst/igst" /></td>
+          <td><input type="text" id="amount-cgst/igst" /></td>
+          <td><input type="text" id="tax-sgst" /></td>
+          <td><input type="text" id="amount-sgst" /></td>
+          <td><input type="text" id="total" /></td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td class="text-center bg-light" colspan="2"><strong>Total</strong></td>
+          <td></td>
+          <td><input type="text"></td>
+          <td></td>
+          <td></td>
+          <td><input type="text"></td>
+          <td></td>
+          <td><input type="text"></td>
+          <td></td>
+          <td></td>
+          <td><input type="text"></td>
+        </tr>
+
+        <tr class="bg-light">
+          <td colspan="6" style="background-color: lightgrey;"><strong>Invoice Value In Words:</strong></td>
+          <td colspan="5" class="text-end">Total Amount before Tax</td>
+          <td><input type="text"></td>
+        </tr>
+
+        <tr>
+          <td colspan="6" rowspan="2"><input type="text"></td>
+          <td colspan="5" class="text-end">Add: CGST</td>
+          <td> <input type="text"></td>
+        </tr>
+
+        <tr>
+          <td colspan="5" class="text-end">Add: SGST</td>
+          <td><input type="text"></td>
+        </tr>
+
+        <tr class="bg-light">
+          <td colspan="6" style="background-color: lightgrey;"><strong>Tax Amount In Words:</strong></td>
+          <td colspan="5" class="text-end">Add: IGST</td>
+          <td><input type="text"></td>
+        </tr>
+
+        <tr>
+          <td colspan="6" rowspan="2"><input type="text"></td>
+          <td colspan="5" class="text-end">Total Tax Amount</td>
+          <td><input type="text"></td>
+        </tr>
+
+        <tr class="bg-light">
+          <td colspan="5" class="text-end">Invoice Value</td>
+          <td><input type="text"></td>
+        </tr>
+
+        <tr>
+          <td colspan="12">
+            <strong><u>Declaration:</u></strong> Certified that all the particulars shown in the above Tax Invoice
+            are true and correct and that my/our Registration under GST Act - 2017 is valid as on the date of this Bill.
+          </td>
+        </tr>
+
+        <tr>
+          <td class="border p-2" colspan="6" style="width: 50%;">
+            <strong>Our Bank Details:</strong><br>
+            Bank Name: <strong>STATE BANK OF INDIA, Tanuku Branch</strong><br>
+            Account Name: <strong>RAJESWARI INDUSTRIES (Current A/c)</strong><br>
+            Account Number: <strong>10676844838</strong><br>
+            IFSC Code: <strong>SBIN0000925</strong>
+          </td>
+          <td class="border p-2 text-center" colspan="6" style="width: 50%;">
+            <em>Certified that the particulars given above are true and correct</em>
+            <div style="margin-top: 80px;"><em>Authorised Signatory</em></div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="text-end my-3">
+      <button class="btn btn-primary" onclick="window.print()">Print Invoice</button>
+    </div>
+  </div>
 
 </body>
 
