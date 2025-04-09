@@ -10,179 +10,176 @@
 </head>
 
 <body>
-  <div class="container-fluid px-4">
-    <div class="d-flex justify-content-between align-items-start mb-2 header-info">
-      <div>GSTIN: 37AFCPB4474L1ZC</div>
-      <div>CASH / CREDIT BILL</div>
-      <div class="text-end">
-        <div>Cell: 94405 20050</div>
-        <div>Ph: 08819-231263</div>
+  <div class="container-fluid px-4" id="container"></div>
+    <div class="d-flex justify-content-around align-items-start mb-2 header-info" id="header-info">
+      <div id="gstin">GSTIN: 37AFCPB4474L1ZC</div>
+      <div id="bill-type">CASH / CREDIT BILL</div>
+      <div class="text-end" id="contact-info">
+        <div id="cell">Cell: 94405 20050</div>
+        <div id="phone">Ph: 08819-231263</div>
       </div>
     </div>
 
-
-
-
-    <table class="table table-bordered text-center">
+    <table class="table table-bordered text-center" id="invoice-table" style="width: 95%; margin: auto;">
       <thead>
-        <tr>
-          <td colspan="12">
-            <div class="header">
-              <h1 class="text-center text-danger fw-bold title">Rajeswari Industries</h1>
-              <p class="text-center fw-bold text-success fs-5 subtitle">Mrfs of: Gunmetal, Copper, Bronze & Brass,
+        <tr id="header-row">
+          <td colspan="12" id="header-cell">
+            <div class="header" id="header">
+              <h1 class="text-center text-danger fw-bold title" id="title">Rajeswari Industries</h1>
+              <p class="text-center fw-bold text-success fs-5 subtitle" id="subtitle">Mrfs of: Gunmetal, Copper, Bronze & Brass,
                 Liner, Bush,
                 Bearings, Machinery Parts etc.,</p>
-              <p class="text-center text-danger fw-semibold fs-5">NON-FERROUS CASTING</p>
-              <p class="text-center fs-5 address">Main Road, Ajjaram, Peravali Mandal, Near Tanuku, West Godavari -
+              <p class="text-center text-danger fw-semibold fs-5" id="non-ferrous">NON-FERROUS CASTING</p>
+              <p class="text-center fs-5 address" id="address">Main Road, Ajjaram, Peravali Mandal, Near Tanuku, West Godavari -
                 534331,
                 Andhra Pradesh</p>
-              <div class="text-center my-2">
-                <span class="tax-invoice">Tax Invoice</span>
+              <div class="text-center my-2" id="tax-invoice-container">
+                <span class="tax-invoice" id="tax-invoice">Tax Invoice</span>
               </div>
             </div>
-
           </td>
         </tr>
-        <tr>
-          <td colspan="6">
-            <div class="input-group-inline"><label>Invoice No:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>Invoice Date:</label> <input type="date" /></div>
-            <div class="input-group-inline"><label>Reverse Charge (Y/N):</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>State:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>State Code:</label> <input type="text" /></div>
+        <tr id="invoice-details-row">
+          <td colspan="6" id="invoice-details-left">
+            <div class="input-group-inline"><label for="invoice-no">Invoice No:</label> <input type="text" id="invoice-no" /></div>
+            <div class="input-group-inline"><label for="invoice-date">Invoice Date:</label> <input type="date" id="invoice-date" /></div>
+            <div class="input-group-inline"><label for="reverse-charge">Reverse Charge (Y/N):</label> <input type="text" id="reverse-charge" /></div>
+            <div class="input-group-inline"><label for="state">State:</label> <input type="text" id="state" /></div>
+            <div class="input-group-inline"><label for="state-code">State Code:</label> <input type="text" id="state-code" /></div>
           </td>
-          <td colspan="6">
-            <div class="input-group-inline"><label>Mode of Transport:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>GSTIN/Vehicle Number:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>Eway Bill No:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>Place of Supply:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>PO No & Date:</label> <input type="text" /></div>
-          </td>
-        </tr>
-        <tr>
-          <th colspan="6" style="background: lightgrey;">Billing Address</th>
-          <th colspan="6" style="background: lightgrey;">Shipping Address</th>
-        </tr>
-        <tr>
-          <td colspan="6">
-            <div class="input-group-inline"><label>Name:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>Address:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>GSTIN:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>UIN No:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>State:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>Code:</label> <input type="text" /></div>
-          </td>
-          <td colspan="6">
-            <div class="input-group-inline"><label>Name:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>Address:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>GSTIN:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>UIN No:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>State:</label> <input type="text" /></div>
-            <div class="input-group-inline"><label>Code:</label> <input type="text" /></div>
+          <td colspan="6" id="invoice-details-right">
+            <div class="input-group-inline"><label for="transport-mode">Mode of Transport:</label> <input type="text" id="transport-mode" /></div>
+            <div class="input-group-inline"><label for="gstin-vehicle">GSTIN/Vehicle Number:</label> <input type="text" id="gstin-vehicle" /></div>
+            <div class="input-group-inline"><label for="eway-bill">Eway Bill No:</label> <input type="text" id="eway-bill" /></div>
+            <div class="input-group-inline"><label for="place-of-supply">Place of Supply:</label> <input type="text" id="place-of-supply" /></div>
+            <div class="input-group-inline"><label for="po-no-date">PO No & Date:</label> <input type="text" id="po-no-date" /></div>
           </td>
         </tr>
-        <tr>
-          <th style="background-color: lightgrey;" rowspan="2">No</th>
-          <th style="background-color: lightgrey;" rowspan="2">Description of Products/Services</th>
-          <th style="background-color: lightgrey;" rowspan="2">HSN Code</th>
-          <th style="background-color: lightgrey;" rowspan="2">Qty</th>
-          <th style="background-color: lightgrey;" rowspan="2">UOM</th>
-          <th style="background-color: lightgrey;" rowspan="2">Rate</th>
-          <th style="background-color: lightgrey;" rowspan="2">Taxable Value</th>
-          <th style="background-color: lightgrey;" colspan="2">CGST / IGST</th>
-          <th style="background-color: lightgrey;" colspan="2">SGST</th>
-          <th style="background-color: lightgrey;" rowspan="2">Total</th>
+        <tr id="address-row">
+          <th colspan="6" style="background: lightgrey;" id="billing-address-header">Billing Address</th>
+          <th colspan="6" style="background: lightgrey;" id="shipping-address-header">Shipping Address</th>
         </tr>
-        <tr>
-          <th style="background-color: lightgrey;">Tax</th>
-          <th style="background-color: lightgrey;">Amount</th>
-          <th style="background-color: lightgrey;">Tax</th>
-          <th style="background-color: lightgrey;">Amount</th>
+        <tr id="address-details-row">
+          <td colspan="6" id="billing-address">
+            <div class="input-group-inline"><label for="billing-name">Name:</label> <input type="text" id="billing-name" /></div>
+            <div class="input-group-inline"><label for="billing-address">Address:</label> <input type="text" id="billing-address-input" /></div>
+            <div class="input-group-inline"><label for="billing-gstin">GSTIN:</label> <input type="text" id="billing-gstin" /></div>
+            <div class="input-group-inline"><label for="billing-uin">UIN No:</label> <input type="text" id="billing-uin" /></div>
+            <div class="input-group-inline"><label for="billing-state">State:</label> <input type="text" id="billing-state" /></div>
+            <div class="input-group-inline"><label for="billing-code">Code:</label> <input type="text" id="billing-code" /></div>
+          </td>
+          <td colspan="6" id="shipping-address">
+            <div class="input-group-inline"><label for="shipping-name">Name:</label> <input type="text" id="shipping-name" /></div>
+            <div class="input-group-inline"><label for="shipping-address">Address:</label> <input type="text" id="shipping-address-input" /></div>
+            <div class="input-group-inline"><label for="shipping-gstin">GSTIN:</label> <input type="text" id="shipping-gstin" /></div>
+            <div class="input-group-inline"><label for="shipping-uin">UIN No:</label> <input type="text" id="shipping-uin" /></div>
+            <div class="input-group-inline"><label for="shipping-state">State:</label> <input type="text" id="shipping-state" /></div>
+            <div class="input-group-inline"><label for="shipping-code">Code:</label> <input type="text" id="shipping-code" /></div>
+          </td>
+        </tr>
+        <tr id="product-header-row">
+          <th style="background-color: lightgrey;" rowspan="2" id="no-header">No</th>
+          <th style="background-color: lightgrey; width: 300px;" rowspan="2" id="description-header">Description of Products/Services</th>
+          <th style="background-color: lightgrey;" rowspan="2" id="hsn-code-header">HSN Code</th>
+          <th style="background-color: lightgrey;" rowspan="2" id="qty-header">Qty</th>
+          <th style="background-color: lightgrey;" rowspan="2" id="uom-header">UOM</th>
+          <th style="background-color: lightgrey;" rowspan="2" id="rate-header">Rate</th>
+          <th style="background-color: lightgrey;" rowspan="2" id="taxable-value-header">Taxable Value</th>
+          <th style="background-color: lightgrey;" colspan="2" id="cgst-igst-header">CGST / IGST</th>
+          <th style="background-color: lightgrey;" colspan="2" id="sgst-header">SGST</th>
+          <th style="background-color: lightgrey;" rowspan="2" id="total-header">Total</th>
+        </tr>
+        <tr id="tax-header-row">
+          <th style="background-color: lightgrey;" id="cgst-tax-header">Tax</th>
+          <th style="background-color: lightgrey;" id="cgst-amount-header">Amount</th>
+          <th style="background-color: lightgrey;" id="sgst-tax-header">Tax</th>
+          <th style="background-color: lightgrey;" id="sgst-amount-header">Amount</th>
         </tr>
       </thead>
 
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td><textarea type="text" id="description" ></textarea></td>
-          <td><input type="text" id="hsncode" /></td>
-          <td><input type="text" id="qty" /></td>
-          <td><input type="text" id="uom" /></td>
-          <td><input type="text" id="rate" /></td>
-          <td><input type="text" id="taxable-value" /></td>
-          <td><input type="text" id="tax-cgst/igst" /></td>
-          <td><input type="text" id="amount-cgst/igst" /></td>
-          <td><input type="text" id="tax-sgst" /></td>
-          <td><input type="text" id="amount-sgst" /></td>
-          <td><input type="text" id="total" /></td>
+      <tbody id="product-body">
+        <tr id="product-row-1">
+          <td id="product-no-1">1</td>
+          <td><textarea type="text" id="description-1"></textarea></td>
+          <td><input type="text" id="hsncode-1" /></td>
+          <td><input type="text" id="qty-1" /></td>
+          <td><input type="text" id="uom-1" /></td>
+          <td><input type="text" id="rate-1" /></td>
+          <td><input type="text" id="taxable-value-1" /></td>
+          <td><input type="text" id="tax-cgst-igst-1" /></td>
+          <td><input type="text" id="amount-cgst-igst-1" /></td>
+          <td><input type="text" id="tax-sgst-1" /></td>
+          <td><input type="text" id="amount-sgst-1" /></td>
+          <td><input type="text" id="total-1" /></td>
         </tr>
       </tbody>
 
-      <tfoot>
-        <tr>
-          <td class="text-center bg-light" colspan="2"><strong>Total</strong></td>
+      <tfoot id="invoice-footer">
+        <tr id="total-row">
+          <td class="text-center bg-light" colspan="2" id="total-label"><strong>Total</strong></td>
           <td></td>
-          <td><input type="text"></td>
-          <td></td>
-          <td></td>
-          <td><input type="text"></td>
-          <td></td>
-          <td><input type="text"></td>
+          <td><input type="text" id="total-qty" /></td>
           <td></td>
           <td></td>
-          <td><input type="text"></td>
+          <td><input type="text" id="total-taxable-value" /></td>
+          <td></td>
+          <td><input type="text" id="total-cgst-igst" /></td>
+          <td></td>
+          <td><input type="text" id="total-sgst" /></td>
+          <td><input type="text" id="total-amount" /></td>
         </tr>
 
-        <tr class="bg-light">
-          <td colspan="6" style="background-color: lightgrey;"><strong>Invoice Value In Words:</strong></td>
-          <td colspan="5" class="text-end">Total Amount before Tax</td>
-          <td><input type="text"></td>
+        <tr class="bg-light" id="invoice-value-row">
+          <td colspan="6" style="background-color: lightgrey;" id="invoice-value-label"><strong>Invoice Value In Words:</strong></td>
+          <td colspan="5" class="text-end" id="total-before-tax-label">Total Amount before Tax</td>
+          <td><input type="text" id="total-before-tax" /></td>
         </tr>
 
-        <tr>
-          <td colspan="6" rowspan="2"><input type="text"></td>
-          <td colspan="5" class="text-end">Add: CGST</td>
-          <td> <input type="text"></td>
+        <tr id="cgst-row">
+          <td colspan="6" rowspan="2" id="total-tax-in-words"><input type="text" id="total-tax-words" /></td>
+          <td colspan="5" class="text-end" id="add-cgst-label">Add: CGST</td>
+          <td><input type="text" id="add-cgst" /></td>
         </tr>
 
-        <tr>
-          <td colspan="5" class="text-end">Add: SGST</td>
-          <td><input type="text"></td>
+        <tr id="sgst-row">
+          <td colspan="5" class="text-end" id="add-sgst-label">Add: SGST</td>
+          <td><input type="text" id="add-sgst" /></td>
         </tr>
 
-        <tr class="bg-light">
-          <td colspan="6" style="background-color: lightgrey;"><strong>Tax Amount In Words:</strong></td>
-          <td colspan="5" class="text-end">Add: IGST</td>
-          <td><input type="text"></td>
+        <tr class="bg-light" id="igst-row">
+          <td colspan="6" style="background-color: lightgrey;" id="tax-amount-label"><strong>Tax Amount In Words:</strong></td>
+          <td colspan="5" class="text-end" id="add-igst-label">Add: IGST</td>
+          <td><input type="text" id="add-igst" /></td>
         </tr>
 
-        <tr>
-          <td colspan="6" rowspan="2"><input type="text"></td>
-          <td colspan="5" class="text-end">Total Tax Amount</td>
-          <td><input type="text"></td>
+        <tr id="total-tax-row">
+
+          <td colspan="6" rowspan="2" id="tax-amount-in-words"><input type="text" id="tax-amount-words" /></td>
+          <td colspan="5" class="text-end" id="total-tax-label">Total Tax Amount</td>
+          <td><input type="text" id="total-tax" /></td>
         </tr>
 
-        <tr class="bg-light">
-          <td colspan="5" class="text-end">Invoice Value</td>
-          <td><input type="text"></td>
+        <tr class="bg-light" id="invoice-value-final-row">
+          <td colspan="5" class="text-end" id="invoice-value-label-final">Invoice Value</td>
+          <td><input type="text" id="invoice-value" /></td>
         </tr>
 
-        <tr>
-          <td colspan="12">
+        <tr id="declaration-row">
+          <td colspan="12" id="declaration">
             <strong><u>Declaration:</u></strong> Certified that all the particulars shown in the above Tax Invoice
             are true and correct and that my/our Registration under GST Act - 2017 is valid as on the date of this Bill.
           </td>
         </tr>
 
-        <tr>
-          <td class="border p-2" colspan="6" style="width: 50%;">
+        <tr id="bank-details-row">
+          <td class="border p-2" colspan="6" style="width: 50%;" id="bank-details">
             <strong>Our Bank Details:</strong><br>
             Bank Name: <strong>STATE BANK OF INDIA, Tanuku Branch</strong><br>
             Account Name: <strong>RAJESWARI INDUSTRIES (Current A/c)</strong><br>
             Account Number: <strong>10676844838</strong><br>
             IFSC Code: <strong>SBIN0000925</strong>
           </td>
-          <td class="border p-2 text-center" colspan="6" style="width: 50%;">
+          <td class="border p-2 text-center" colspan="6" style="width: 50%;" id="authorised-signatory">
             <em>Certified that the particulars given above are true and correct</em>
             <div style="margin-top: 80px;"><em>Authorised Signatory</em></div>
           </td>
@@ -190,10 +187,12 @@
       </tfoot>
     </table>
 
-    <div class="text-end my-3">
-      <button class="btn btn-primary" onclick="window.print()">Print Invoice</button>
+    <div class="text-end my-3" id="print-button-container">
+      <button class="btn btn-primary" onclick="window.print()" id="print-button">Print Invoice</button>
     </div>
   </div>
+
+  <script src="script.js" id="script"></script>
 
 </body>
 
