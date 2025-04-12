@@ -39,12 +39,10 @@ function convertHundreds(num) {
     return ones[Math.floor(num / 100)] + " Hundred " + convertHundreds(num % 100);
 }
 
-// Format number to words with INR and ONLY
 function formatInrWords(num) {
     return `INR ${numberToWords(num).toUpperCase()} ONLY`;
 }
 
-// Main calculation for the first product row
 function calculateInvoice() {
     const qty = parseFloat(document.getElementById("qty-1").value) || 0;
     const rate = parseFloat(document.getElementById("rate-1").value) || 0;
@@ -57,7 +55,6 @@ function calculateInvoice() {
     const totalTax = cgstAmount + sgstAmount;
     const total = taxableValue + totalTax;
 
-    // Update calculated values
     document.getElementById("taxable-value-1").value = taxableValue;
     document.getElementById("amount-cgst-igst-1").value = cgstAmount;
     document.getElementById("amount-sgst-1").value = sgstAmount;
@@ -69,21 +66,18 @@ function calculateInvoice() {
     document.getElementById('total-sgst').value = sgstAmount;
     document.getElementById("total-amount").value = total;
 
-   // Footer calculations
-document.getElementById("total-before-tax").value = taxableValue;
-document.getElementById("add-cgst").value = cgstAmount;
-document.getElementById("add-sgst").value = sgstAmount;
-document.getElementById("add-igst").value = 0;
-document.getElementById("total-tax").value = totalTax;
-document.getElementById("invoice-value").value = total;
+    document.getElementById("total-before-tax").value = taxableValue;
+    document.getElementById("add-cgst").value = cgstAmount;
+    document.getElementById("add-sgst").value = sgstAmount;
+    document.getElementById("add-igst").value = 0;
+    document.getElementById("total-tax").value = totalTax;
+    document.getElementById("invoice-value").value = total;
 
-// Words
-document.getElementById("total-tax-words").value = formatInrWords(total);       // Invoice Value in Words
-document.getElementById("tax-amount-words").value = formatInrWords(totalTax);   // Tax Amount in Words
-   // Invoice Value in Words
+    document.getElementById("total-tax-words").value = formatInrWords(total);
+    document.getElementById("tax-amount-words").value = formatInrWords(totalTax);
+
 }
 
-// Attach event listeners
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("qty-1").addEventListener("input", calculateInvoice);
     document.getElementById("rate-1").addEventListener("input", calculateInvoice);
